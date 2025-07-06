@@ -12,8 +12,6 @@ const Footer = () => {
                         right:"0px"
                         }}>
             
-            
-                  
                 <h6
                 style={{
                     color: "white",
