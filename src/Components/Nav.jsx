@@ -14,7 +14,6 @@ const Nav = () => {
                 <Link to={'/Blog'}><Button variant='contained' style={{backgroundColor:'black'}}>View Posts</Button></Link>
 
                
-              
             </Toolbar>
         </AppBar>
         <br /><br /><br />

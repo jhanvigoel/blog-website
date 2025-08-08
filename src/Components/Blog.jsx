@@ -1,49 +1,33 @@
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
-import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Card, CardContent, Typography } from '@mui/material';
 
 const Blog = () => {
+  const [blogs, setBlogs] = useState([]);
 
-   var [blog,setBlog] = useState([])
-
-   axios.get("https://jsonplaceholder.typicode.com/posts").then((res)=>{
-
-    setBlog(res.data)
-    //console.log(res.data)
-    console.log(blog)
-  })
+  useEffect(() => {
+    axios.get('http://localhost:5000/api/blogs')
+      .then(res => {
+        setBlogs(res.data);
+      })
+      .catch(err => {
+        console.error("Error fetching blogs", err);
+      });
+  }, []);
 
   return (
-    <div>
-        <TableContainer>
-            <Table>
-                <TableHead>
-                    <TableRow>
-                    <TableCell>ID</TableCell>
-                    <TableCell>Title</TableCell>
-                    <TableCell>Body</TableCell>
-                    </TableRow>
-                    
-                </TableHead>
-                <TableBody>
-                    {blog.map((val)=>{
-                        return(
-                        <TableRow>
-                            <TableCell>{val.id}</TableCell>
-                            <TableCell>{val.title}</TableCell>
-                            <TableCell>{val.body}</TableCell>
-                        </TableRow>
-                        )
-                    })}
-                   
-                </TableBody>
-            </Table>
-
-        </TableContainer>
-        <br /><br />
-
+    <div style={{ padding: '20px' }}>
+      {blogs.map((blog) => (
+        <Card key={blog._id} style={{ marginBottom: '20px' }}>
+          <CardContent>
+            <Typography variant="h6">ID: {blog.id}</Typography>
+            <Typography variant="h5">Title: {blog.title}</Typography>
+            <Typography variant="body1">Body: {blog.body}</Typography>
+          </CardContent>
+        </Card>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Blog
+export default Blog;
