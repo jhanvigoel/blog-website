@@ -1,1 +1,81 @@
 
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+	background: #f7f8fa;
+	color: #222;
+}
+
+.MuiCard-root {
+	border-radius: 16px;
+	box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+	background: #fff;
+}
+
+.MuiCardContent-root {
+	padding: 24px 20px 16px 20px;
+}
+
+.MuiTypography-h5 {
+	font-weight: 600;
+	color: #222;
+}
+
+.MuiTypography-body1, .MuiTypography-body2 {
+	color: #444;
+}
+
+form {
+	background: #fff;
+	padding: 32px 24px;
+	border-radius: 12px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+	max-width: 400px;
+	margin: 40px auto;
+}
+
+.MuiTextField-root {
+	width: 100%;
+}
+
+.MuiButton-contained {
+	background: #222 !important;
+	color: #fff !important;
+	border-radius: 8px;
+	font-weight: 500;
+	box-shadow: none;
+	text-transform: none;
+}
+
+.MuiAppBar-root {
+	background: #fff !important;
+	color: #222 !important;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.MuiToolbar-root {
+	min-height: 64px !important;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1, h4, h6 {
+	margin: 0;
+}
+
+.footer {
+	background: #fff;
+	color: #888;
+	text-align: center;
+	padding: 12px 0;
+	font-size: 14px;
+	border-top: 1px solid #eee;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+

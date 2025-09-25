@@ -6,12 +6,23 @@ const Blog = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/blogs')
+    const apiUrl = `${import.meta.env.VITE_API_URL}/api/blogs`;
+    console.log('Attempting to fetch from:', apiUrl);
+    
+    axios.get(apiUrl)
       .then(res => {
+        console.log('Success:', res.data);
         setBlogs(res.data);
       })
       .catch(err => {
         console.error("Error fetching blogs", err);
+        console.error("Full error details:", {
+          message: err.message,
+          status: err.response?.status,
+          statusText: err.response?.statusText,
+          data: err.response?.data,
+          url: err.config?.url
+        });
       });
   }, []);
 
